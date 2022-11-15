@@ -14,8 +14,10 @@ setwd('//home/gberman/github/tmc')
 # Load the .yml files
 configs <- read_yaml('configuration/corpus_config.yml')
 
+project_path <- paste('projects', configs$project_details$name, sep="/")
+
 # Load the .csv file
-df <- read.csv('data/intermediate/code_extracted.csv')
+df <- read.csv(paste(project_path, 'inputs/intermediate/code_extracted.csv', sep="/"))
 names(df)
 
 # Convert it to a corpus
@@ -30,7 +32,7 @@ for (metas in meta_data){
 }
 
 # save the corpus
-saveRDS(corp_df, 'data/intermediate/corpus.RDS')
+saveRDS(corp_df, paste(project_path, 'inputs/intermediate/corpus.RDS', sep="/"))
 
 # create tokens
 tokens_df <- tokens(corp_df, 
@@ -58,7 +60,7 @@ if (configs$`document-term_matrix_options`$`n-grams` > 1){
 } else {print("No n-grams created.")}
 
 # save the tokens
-saveRDS(tokens_df, 'data/intermediate/tokens.RDS')
+saveRDS(tokens_df, paste(project_path, 'inputs/intermediate/tokens.RDS', sep="/"))
 
 # create document frequency matrix
 dfm_df <- dfm(tokens_df)
@@ -75,8 +77,8 @@ if (configs$`document-term_matrix_options`$dtm_method == 2) {
 }
 
 # save the document frequency matrix
-saveRDS(dfm_df, 'data/processed/dfm.RDS')
+saveRDS(dfm_df, paste(project_path, 'inputs/processed/dfm.RDS', sep="/"))
 
 # clean up
-rm(configs, df, dfm_df, tokens_df , corp_df, meta_data, metas)
+rm(configs, df, dfm_df, tokens_df , corp_df, meta_data, metas, project_path)
 

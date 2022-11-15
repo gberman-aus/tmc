@@ -1,12 +1,13 @@
 # This script sets up all directories for training. Directory structure is:
 # projects
-# └──inputs
-#       └──raw
-#       └──intermediate
-#       └──processed
-# └──outputs
-#       └──models
-#       └──visualizations
+# └──project name
+#       └──inputs
+#              └──raw
+#              └──intermediate
+#              └──processed
+#       └──outputs
+#              └──models
+#              └──visualizations
 
 # Requirements
 import yaml

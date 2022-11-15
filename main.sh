@@ -8,12 +8,12 @@ echo "Getting dataset"
 
 python3 src/Python/code_extractor.py
 
-# echo "Cleaning and preparing the data"
+echo "Cleaning and preparing the data"
 
-# Rscript src/R/corpus_cleaning.R
+Rscript src/R/corpus_cleaning.R
 
-# echo "Training the model. Will take some time."
+echo "Training the model. Will take some time."
 
-# Rscript src/R/model_training.R
+Rscript src/R/model_training.R
 
-# echo "Shutting down."
+echo "Shutting down."

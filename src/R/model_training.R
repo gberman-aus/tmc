@@ -15,8 +15,10 @@ setwd('//home/gberman/github/tmc')
 configs <- read_yaml('configuration/corpus_config.yml')
 training_plan <- read_yaml('configuration/training_config.yml')
 
+project_path <- paste('projects', configs$project_details$name, sep="/")
+
 # Load the .RDS dfm file
-dtm <- readRDS('data/processed/dfm.RDS')
+dtm <- readRDS(paste(project_path, 'inputs/processed/dfm.RDS', sep="/"))
 
 # convert the dfm format for the stm package
 dtm <- convert(dtm, to = "stm")
@@ -34,11 +36,13 @@ ManyTop<- manyTopics(documents = dtm$documents,
                      runs=50)
 
 # save the manytop file
-saveRDS(ManyTop, 'results/models/manytopics.RDS')
+saveRDS(ManyTop, paste(project_path, 'outputs/models/manytopics.RDS', sep="/"))
 
 # Plot Topic Summaries
+visualizations_path <- paste(project_path, 'outputs/visualizations/', sep="/")
+  
 for(i in 1:length(topic_range)) {
-  pdf(file = paste0("results/outputs/", topic_range[i], ".pdf"), width = 12, height = 8)
+  pdf(file = paste0(visualizations_path, topic_range[i], ".pdf"), width = 12, height = 8)
   plot(ManyTop$out[[i]],text.cex = 0.5, n = 15, 
        main = paste0(topic_range[i], " ", "Topics"))
   dev.off()
@@ -69,7 +73,7 @@ for(i in 1:length(topic_range)) {
   E(igTC05[[i]])$width <- E(igTC05[[i]])$weight*50
   
   # side by side plot of networks and export as pdf	
-  pdf(file = paste0("results/outputs/TC0105", topic_range[i], "fr.pdf"), width = 12, height = 8)
+  pdf(file = paste0(visualizations_path, "TC0105", topic_range[i], "fr.pdf"), width = 12, height = 8)
   par(mfrow = c(1,2))	
   plot(igTC01[[i]], layout = layout_with_fr, 
        vertex.size = degree(igTC01[[i]], mode = "all")*0.5, 
@@ -86,7 +90,7 @@ for(i in 1:length(topic_range)) {
   E(igTC05[[i]])$width <- E(igTC05[[i]])$weight*10
   
   # 4 up community detection (using NG and GO) plot and export as pdf	
-  pdf(file = paste0("results/outputs/TCCD0105", topic_range[i], "fr.pdf"), width = 12, height = 8)
+  pdf(file = paste0(visualizations_path, "TCCD0105", topic_range[i], "fr.pdf"), width = 12, height = 8)
   par(mfrow = c(2,2))	
   # plot community detection using NG cutoff = 0.01
   plot(cluster_edge_betweenness(igTC01[[i]]), igTC01[[i]], 
@@ -111,9 +115,9 @@ for(i in 1:length(topic_range)) {
 }
 
 #save an R image
-save.image("results/outputs/manytopics.RData")
+save.image(paste(project_path, "outputs/manytopics.RData", sep="/"))
 
 #clean up
-rm(configs, dtm, training_plan, topic_range, ManyTop, igTC01, igTC05, TC01, TC05, i)
+rm(configs, dtm, training_plan, topic_range, ManyTop, igTC01, igTC05, TC01, TC05, i, project_path, visualizations_path)
 
 

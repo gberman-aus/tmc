@@ -5,14 +5,15 @@
 # covariates in the stm model).
 
 project_details:
-  name: testingTMC
+  name: example
   date: '15 November 2022'
   # enter date is a string
 
 corpus_details:
-  url: 'https://media.githubusercontent.com/media/gberman-aus/corpus_data/204402169ccabf153a3d5145456629242f8cbe8f/ML_NB_dataset.csv?token=AKNYR2HIMTJ2KLTDNBWJ7XTDOMYUA'
+  url: 'https://media.githubusercontent.com/media/gberman-aus/corpus_data/main/stack_posts_sample.csv'
   local_copy: 1
   # options are 1 for yes, in which case local copy of .csv will be stored in name/inputs/raw/ directory, or 2 for no.
+  # note: this assumes a publicly accessible dataset
 
 corpus_format:
   col_names: ['Id', 'Title', 'Body', 'ViewCount', 'Score', 'Tags', 'CreationDate']
@@ -30,5 +31,5 @@ document-term_matrix_options:
     # note: set n-grams to 1 for inclusion only of unigrams, 
   # to 2 for inclusion of bigram, etc. Larger n-grams will 
   # significantly increase size of corpus, and slow down processing.
-  stemming: 2
+  stemming: 1
   # options for stemming are 1 for yes or 2 for no
