@@ -1,0 +1,7 @@
+# Configuration file for model training
+# ---------------------
+
+K_value_range:
+  min_K: 5
+  max_K: 10
+  K_interval: 5
