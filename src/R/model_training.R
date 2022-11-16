@@ -26,14 +26,16 @@ dtm <- convert(dtm, to = "stm")
 # search for the best number of topics
 topic_range <- seq(from = training_plan$K_value_range$min_K, to = training_plan$K_value_range$max_K, by = training_plan$K_value_range$K_interval)
 
+# then run manyTopics without any prevalance or content covariates.
 ManyTop<- manyTopics(documents = dtm$documents, 
                      vocab = dtm$vocab, 
                      K = topic_range, 
-                     max.em.its = 100, 
+                     max.em.its = training_plan$stm_settings$max_iterations, 
                      data = dtm$meta, 
                      init.type = "Spectral", 
-                     seed=180587, 
-                     runs=50)
+                     seed= training_plan$stm_settings$seed, 
+                     runs= training_plan$stm_settings$runs,
+                     )
 
 # save the manytop file
 saveRDS(ManyTop, paste(project_path, 'outputs/models/manytopics.RDS', sep="/"))
