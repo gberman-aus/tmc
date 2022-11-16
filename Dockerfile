@@ -1,24 +1,44 @@
-# For more information, please refer to https://aka.ms/vscode-docker-python
-FROM python:3.8-slim
+FROM ubuntu:22.04
 
-# Keeps Python from generating .pyc files in the container
-ENV PYTHONDONTWRITEBYTECODE=1
+RUN mkdir -p /home/gberman/github/tmc
 
-# Turns off buffering for easier container logging
-ENV PYTHONUNBUFFERED=1
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install Python and R
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    r-base \
+    r-base-dev \
+    python3.6 \
+    python3-pip \
+    python3-setuptools \
+    python3-dev \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    libpoppler-cpp-dev \
+    libxml2-dev
 
 # Install pip requirements
 COPY requirements.txt .
-RUN python -m pip install -r requirements.txt
+RUN python3 -m pip install -r requirements.txt
 
-WORKDIR /app
-COPY . /app
+# Install RENV and R requirements
+ENV RENV_VERSION 0.16.0
+RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))"
+RUN R -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')"
 
-# Creates a non-root user with an explicit UID and adds permission to access the /app folder
-# For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
-RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
-USER appuser
+WORKDIR /home/gberman/github/tmc
+COPY renv.lock renv.lock
+RUN mkdir -p renv
+COPY .Rprofile .Rprofile
+COPY renv/activate.R renv/activate.R
+COPY renv/settings.dcf renv/settings.dcf
 
-# During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
-CMD ["python", "tests/test.py"]
-    
+RUN R -e "renv::restore()"
+
+COPY configuration /home/gberman/github/tmc/configuration/
+COPY projects /home/gberman/github/tmc/projects/
+COPY src /home/gberman/github/tmc/src
+COPY main.sh /home/gberman/github/tmc
+
+CMD ["bash", "main.sh"]
