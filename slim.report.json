@@ -1,0 +1,369 @@
+{
+  "version": "1.0",
+  "engine": "linux|Transformer|1.39.1|537c77323f2e9a3d6771aa0ea73a047017774d16|2022-11-13_03:27:40AM",
+  "containerized": false,
+  "host_distro": {
+    "name": "Pop!_OS",
+    "version": "22.04",
+    "display_name": "Pop!_OS 22.04 LTS"
+  },
+  "type": "build",
+  "state": "error",
+  "error": "no.exposed.ports",
+  "target_reference": "tmc:latest",
+  "system": {
+    "type": "",
+    "release": "",
+    "distro": {
+      "name": "",
+      "version": "",
+      "display_name": ""
+    }
+  },
+  "source_image": {
+    "identity": {
+      "id": ""
+    },
+    "size": 0,
+    "size_human": "",
+    "create_time": "",
+    "docker_version": "",
+    "architecture": "",
+    "container_entry": {
+      "exe_path": ""
+    }
+  },
+  "minified_image_size": 0,
+  "minified_image_size_human": "",
+  "minified_image": "",
+  "minified_image_has_data": false,
+  "minified_by": 0,
+  "artifact_location": "",
+  "container_report_name": "",
+  "seccomp_profile_name": "",
+  "apparmor_profile_name": "",
+  "image_stack": [
+    {
+      "is_top_image": false,
+      "id": "sha256:a8780b506fa4eeb1d0779a3c92c8d5d3e6a656c758135f62826768da458b5235",
+      "full_name": "ubuntu:22.04",
+      "repo_name": "ubuntu",
+      "version_tag": "22.04",
+      "raw_tags": [
+        "ubuntu:22.04"
+      ],
+      "create_time": "2022-11-02T18:25:55Z",
+      "new_size": 77792502,
+      "new_size_human": "78 MB",
+      "instructions": [
+        {
+          "type": "ADD",
+          "time": "2022-11-02T18:25:55Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 77792502,
+          "size_human": "78 MB",
+          "params": "file:29c72d5be8c977acaeb6391aeb23ec27559b594e25a0bb3a6dd280bac2847b7f in /",
+          "command_snippet": "ADD file:29c72d5be8c977acaeb6391aeb23ec27559...",
+          "command_all": "ADD file:29c72d5be8c977acaeb6391aeb23ec27559b594e25a0bb3a6dd280bac2847b7f /",
+          "target": "/",
+          "source_type": "file"
+        },
+        {
+          "type": "CMD",
+          "time": "2022-11-02T18:25:55Z",
+          "is_last_instruction": true,
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"bash\"]\n",
+          "command_snippet": "CMD [\"bash\"]\n",
+          "command_all": "CMD [\"bash\"]\n",
+          "raw_tags": [
+            "ubuntu:22.04"
+          ]
+        }
+      ]
+    },
+    {
+      "is_top_image": true,
+      "id": "sha256:32a6054846ae8a20ee0242fb960e5948d7e76654a5251d6916d175fc65512fd6",
+      "full_name": "tmc:latest",
+      "repo_name": "tmc",
+      "version_tag": "latest",
+      "raw_tags": [
+        "tmc:latest"
+      ],
+      "create_time": "2022-11-16T05:04:32Z",
+      "new_size": 1222634929,
+      "new_size_human": "1.2 GB",
+      "base_image_id": "sha256:a8780b506fa4eeb1d0779a3c92c8d5d3e6a656c758135f62826768da458b5235",
+      "instructions": [
+        {
+          "type": "RUN",
+          "time": "2022-11-16T03:54:49Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:89de8d94c2e38674d81718d922261fcb88b383717b06fac864820a33437fecec",
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN mkdir /home/tmc",
+          "command_all": "RUN mkdir /home/tmc",
+          "system_commands": [
+            "mkdir /home/tmc"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2022-11-16T03:54:49Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:6a50f550d4dea0d092b14fc059c00931153a3e0ec0884ba53e0b1ba773f7b444",
+          "layer_index": 0,
+          "size": 0,
+          "params": "DEBIAN_FRONTEND=noninteractive",
+          "command_snippet": "ENV DEBIAN_FRONTEND=noninteractive",
+          "command_all": "ENV DEBIAN_FRONTEND=noninteractive"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-11-16T04:46:09Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:194f2ad9af898496f60f1b1969593a7db96bbdbc23e958a54e006550b7f665df",
+          "layer_index": 0,
+          "size": 669801759,
+          "size_human": "670 MB",
+          "command_snippet": "RUN apt-get update && \\\n\tapt-get install -y ...",
+          "command_all": "RUN apt-get update && \\\n\tapt-get install -y --no-install-recommends     build-essential     r-base     r-base-dev     python3.6     python3-pip     python3-setuptools     python3-dev     libcurl4-openssl-dev     libssl-dev     libpoppler-cpp-dev     libxml2-dev",
+          "system_commands": [
+            "apt-get update",
+            "apt-get install -y --no-install-recommends     build-essential     r-base     r-base-dev     python3.6     python3-pip     python3-setuptools     python3-dev     libcurl4-openssl-dev     libssl-dev     libpoppler-cpp-dev     libxml2-dev"
+          ]
+        },
+        {
+          "type": "COPY",
+          "time": "2022-11-16T04:46:10Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:b276804b50e3d6299ed77818205f7831b37b3338c4d880de1dc36dda285b7420",
+          "layer_index": 0,
+          "size": 249,
+          "size_human": "249 B",
+          "params": "file:4609f6325f300756bdf12ab1f7440b0e08d124af6ba6b01361d0d20658cf3856 in .",
+          "command_snippet": "COPY file:4609f6325f300756bdf12ab1f7440b0e08...",
+          "command_all": "COPY file:4609f6325f300756bdf12ab1f7440b0e08d124af6ba6b01361d0d20658cf3856 .",
+          "target": ".",
+          "source_type": "file"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-11-16T04:46:27Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:11705c99ef4246aea588720deb8fbe19e247512206c4ae2c1d7e13b9bb47f221",
+          "layer_index": 0,
+          "size": 159955336,
+          "size_human": "160 MB",
+          "command_snippet": "RUN python3 -m pip install -r requirements.t...",
+          "command_all": "RUN python3 -m pip install -r requirements.txt",
+          "system_commands": [
+            "python3 -m pip install -r requirements.txt"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2022-11-16T04:46:31Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:83797ae6d7ad8c6987ba8b96393528f1094a696bb2c22f6e303592cb106bcbc6",
+          "layer_index": 0,
+          "size": 0,
+          "params": "RENV_VERSION=0.16.0",
+          "command_snippet": "ENV RENV_VERSION=0.16.0",
+          "command_all": "ENV RENV_VERSION=0.16.0"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-11-16T04:46:37Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:f0a4470b6ad683005f33858afcd957eac9567f09c408a8bbf2962029a127cb0b",
+          "layer_index": 0,
+          "size": 581528,
+          "size_human": "582 kB",
+          "command_snippet": "RUN R -e \"install.packages('remotes', repos ...",
+          "command_all": "RUN R -e \"install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))\"",
+          "system_commands": [
+            "R -e \"install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))\""
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2022-11-16T04:46:50Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:05828129afa43b968bf2d48f933854736a697d368f78994ad5ab8a9372731bef",
+          "layer_index": 0,
+          "size": 1455087,
+          "size_human": "1.5 MB",
+          "command_snippet": "RUN R -e \"remotes::install_github('rstudio/r...",
+          "command_all": "RUN R -e \"remotes::install_github('rstudio/renv@${RENV_VERSION}')\"",
+          "system_commands": [
+            "R -e \"remotes::install_github('rstudio/renv@${RENV_VERSION}')\""
+          ]
+        },
+        {
+          "type": "WORKDIR",
+          "time": "2022-11-16T04:46:50Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:ff666f4bcdf2d5de3fe2334a3ec174882f67f1e0d88f9cc566b4ba15849d9d75",
+          "layer_index": 0,
+          "size": 0,
+          "params": "/home/tmc",
+          "command_snippet": "WORKDIR /home/tmc",
+          "command_all": "WORKDIR /home/tmc",
+          "system_commands": [
+            "mkdir -p /home/tmc"
+          ]
+        },
+        {
+          "type": "COPY",
+          "time": "2022-11-16T04:46:50Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:bb75072b9ee151ab19cd38f845092ffd10ea56264a9aad7da7890eafd539519d",
+          "layer_index": 0,
+          "size": 19346,
+          "size_human": "19 kB",
+          "params": "file:e0b2a6c07448d73b1ff1411e4e727e50332286a6e08766aed51e74f49a404a9b in renv.lock",
+          "command_snippet": "COPY file:e0b2a6c07448d73b1ff1411e4e727e5033...",
+          "command_all": "COPY file:e0b2a6c07448d73b1ff1411e4e727e50332286a6e08766aed51e74f49a404a9b renv.lock",
+          "target": "renv.lock",
+          "source_type": "file"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-11-16T04:46:51Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:e862c58baa787913b0f93470a084e5bf8be81a79e07517511d6bff393959c43a",
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN mkdir -p renv",
+          "command_all": "RUN mkdir -p renv",
+          "system_commands": [
+            "mkdir -p renv"
+          ]
+        },
+        {
+          "type": "COPY",
+          "time": "2022-11-16T04:46:51Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:7f47ff2e9146c958e77500250f5d71368939e15707a907c6ee234244ce58ecc1",
+          "layer_index": 0,
+          "size": 26,
+          "size_human": "26 B",
+          "params": "file:f89b6c06bf784bfd583cbbaed97e2863f1aaa1d111a62990228d052a764e4916 in .Rprofile",
+          "command_snippet": "COPY file:f89b6c06bf784bfd583cbbaed97e2863f1...",
+          "command_all": "COPY file:f89b6c06bf784bfd583cbbaed97e2863f1aaa1d111a62990228d052a764e4916 .Rprofile",
+          "target": ".Rprofile",
+          "source_type": "file"
+        },
+        {
+          "type": "COPY",
+          "time": "2022-11-16T04:46:51Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:22726a7e024dea05a9718305e8c23d667c4bb8ee472f64e8d5accea29c534bc5",
+          "layer_index": 0,
+          "size": 27179,
+          "size_human": "27 kB",
+          "params": "file:db133cc622e1aebb5fc3300b3296738265b3d947c3aa532da349347b24683d09 in renv/activate.R",
+          "command_snippet": "COPY file:db133cc622e1aebb5fc3300b3296738265...",
+          "command_all": "COPY file:db133cc622e1aebb5fc3300b3296738265b3d947c3aa532da349347b24683d09 renv/activate.R",
+          "target": "renv/activate.R",
+          "source_type": "file"
+        },
+        {
+          "type": "COPY",
+          "time": "2022-11-16T04:46:51Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:c2fcb1b81876552f3e828ab18f57dd54688f9bb63689ef72568427b363b936ed",
+          "layer_index": 0,
+          "size": 238,
+          "size_human": "238 B",
+          "params": "file:c963fc9379b8558b8019baa575b4f56a5db7abdb1866f7fb5c206ff4a7c2d408 in renv/settings.dcf",
+          "command_snippet": "COPY file:c963fc9379b8558b8019baa575b4f56a5d...",
+          "command_all": "COPY file:c963fc9379b8558b8019baa575b4f56a5db7abdb1866f7fb5c206ff4a7c2d408 renv/settings.dcf",
+          "target": "renv/settings.dcf",
+          "source_type": "file"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-11-16T05:04:29Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:710bc011a84de1978bc31210f8a29a79c197d931799ebd5dae4733d57c478bb4",
+          "layer_index": 0,
+          "size": 345854727,
+          "size_human": "346 MB",
+          "command_snippet": "RUN R -e \"renv::restore()\"",
+          "command_all": "RUN R -e \"renv::restore()\"",
+          "system_commands": [
+            "R -e \"renv::restore()\""
+          ]
+        },
+        {
+          "type": "COPY",
+          "time": "2022-11-16T05:04:31Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:e847e1d8bb657dbe463b272ea21fc0ca07c3a6a802680ad4073032f24641db79",
+          "layer_index": 0,
+          "size": 44939454,
+          "size_human": "45 MB",
+          "params": "dir:1a390b85a64ba78bd4683b21deae1675b337a983441ce2302e1e3618aa738f52 in /home/tmc/",
+          "command_snippet": "COPY dir:1a390b85a64ba78bd4683b21deae1675b33...",
+          "command_all": "COPY dir:1a390b85a64ba78bd4683b21deae1675b337a983441ce2302e1e3618aa738f52 /home/tmc/",
+          "target": "/home/tmc/",
+          "source_type": "dir"
+        },
+        {
+          "type": "CMD",
+          "time": "2022-11-16T05:04:32Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:69edb0bbc50ed612446b667c0429e6b36074ceaac507a385868bce6cb4bd8713",
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"bash\",\"main.sh\"]\n",
+          "command_snippet": "CMD [\"bash\",\"main.sh\"]\n",
+          "command_all": "CMD [\"bash\",\"main.sh\"]\n"
+        },
+        {
+          "type": "LABEL",
+          "time": "2022-11-16T05:04:32Z",
+          "is_last_instruction": true,
+          "is_nop": true,
+          "local_image_exists": true,
+          "layer_index": 0,
+          "size": 0,
+          "params": "com.microsoft.created-by=visual-studio-code",
+          "command_snippet": "LABEL com.microsoft.created-by=visual-studio...",
+          "command_all": "LABEL com.microsoft.created-by=visual-studio-code",
+          "raw_tags": [
+            "tmc:latest"
+          ]
+        }
+      ]
+    }
+  ]
+}
