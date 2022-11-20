@@ -37,7 +37,7 @@ saveRDS(corp_df, paste(project_path, 'inputs/intermediate/corpus.RDS', sep="/"))
 # create tokens
 tokens_df <- tokens(corp_df, 
                     remove_punct = TRUE, 
-                    remove_numbers = FALSE, 
+                    remove_numbers = TRUE, 
                     remove_symbols = TRUE, 
                     remove_url = TRUE, 
                     remove_separators = TRUE)
