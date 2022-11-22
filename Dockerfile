@@ -36,9 +36,9 @@ COPY renv/settings.dcf renv/settings.dcf
 
 RUN R -e "renv::restore()"
 
-COPY configuration /home/gberman/github/tmc/configuration/
-COPY projects /home/gberman/github/tmc/projects/
-COPY src /home/gberman/github/tmc/src
-COPY main.sh /home/gberman/github/tmc
+# COPY configuration /home/gberman/github/tmc/configuration/
+# COPY projects /home/gberman/github/tmc/projects/
+# COPY src /home/gberman/github/tmc/src
+# COPY main.sh /home/gberman/github/tmc
 
-CMD ["bash", "main.sh"]
+# CMD ["bash", "main.sh"]
