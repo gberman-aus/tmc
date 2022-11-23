@@ -2,19 +2,18 @@ Bootstrap: docker
 From: ubuntu:22.04
 Stage: spython-base
 
-%files
-requirements.txt .
-renv.lock renv.lock
-.Rprofile .Rprofile
-renv/activate.R renv/activate.R
-renv/settings.dcf renv/settings.dcf
-configuration /home/gberman/github/tmc/configuration/
-projects /home/gberman/github/tmc/projects/
-src /home/gberman/github/tmc/src
-main.sh /home/gberman/github/tmc
-%post
 
-mkdir -p /home/gberman/github/tmc
+
+
+%files
+    requirements.txt .
+    renv.lock renv.lock
+    .Rprofile .Rprofile
+    renv/activate.R renv/activate.R
+    renv/settings.dcf renv/settings.dcf
+
+%post
+    mkdir -p /home/gberman/github/tmc
 
 DEBIAN_FRONTEND=noninteractive
 

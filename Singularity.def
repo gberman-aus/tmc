@@ -1,6 +1,5 @@
 Bootstrap: docker
 From: ubuntu:22.04
-Stage: spython-base
 IncludeCmd: yes # Use the CMD as runscript instead of ENTRYPOINT
 
 %files
