@@ -5,20 +5,22 @@
 # covariates in the stm model).
 
 project_details:
-  name: SingularityTest
-  date: '15 November 2022'
+  name: StackExchangeK5_20
+  date: '24 November 2022'
   # enter date is a string
+  path:'//home/users/u4311864/tmc'
+  # currently path is hard coded and this variable isn't used. At some point will update.
 
 corpus_details:
-  url: 'https://media.githubusercontent.com/media/gberman-aus/corpus_data/main/stack_posts_sample.csv'
+  url: '//home/users/u4311864/datasets/LP_ML_corpus_23_Nov_22.csv'
   local_copy: 1
   # options are 1 for yes, in which case local copy of .csv will be stored in name/inputs/raw/ directory, or 2 for no.
   # note: this assumes a publicly accessible dataset
 
 corpus_format:
-  col_names: ['Id', 'Title', 'Body', 'ViewCount', 'Score', 'Tags', 'CreationDate']
+  col_names: ['Source','Id', 'Title', 'Body', 'ViewCount', 'Score', 'Tags', 'CreationDate']
   text_columns: ['Title', 'Body']
-  data_columns: ['ViewCount', 'Score', 'Tags', 'CreationDate']
+  data_columns: ['Source','ViewCount', 'Score', 'Tags', 'CreationDate']
 
 document-term_matrix_options:
   dtm_method: 1

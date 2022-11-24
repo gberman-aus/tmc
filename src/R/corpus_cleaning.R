@@ -9,7 +9,7 @@ library(quanteda)
 library(readtext)
 
 # make sure we are in the right directory
-setwd('//home/gberman/github/tmc')
+setwd('//home/users/u4311864/tmc')
 
 # Load the .yml files
 configs <- read_yaml('configuration/corpus_config.yml')

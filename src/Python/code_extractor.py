@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 import numpy as np
 
 # make sure we are in the right directory
-os.chdir('//home/gberman/github/tmc')
+os.chdir('//home/users/u4311864/tmc')
 
 # load the configuration file
 with open("configuration/corpus_config.yml") as config_settings:
@@ -51,9 +51,10 @@ new_df.to_csv(save_path, index=False)
 print("Saved deduplicated corpus.")
 
 # For columns that the config file identifies as containing text, 
-# remove code snippets.
+# make text lowercase, and remove code snippets.
 text_cols = configs['corpus_format']['text_columns']
 new_df['Text'] = new_df[text_cols].agg(' '.join, axis=1)
+new_df['Text'] = new_df['Text'].str.casefold()
 
 new_df['CodeSnippets'] = ''
 new_df['TextNoCode'] = ''

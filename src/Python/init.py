@@ -14,7 +14,7 @@ import yaml
 import os
 
 # make sure we are in the right directory
-os.chdir('//home/gberman/github/tmc')
+os.chdir('//home/users/u4311864/tmc')
 
 # load the configuration file
 with open("configuration/corpus_config.yml") as config_settings:
