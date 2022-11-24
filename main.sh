@@ -10,6 +10,9 @@ python3 src/Python/code_extractor.py
 
 echo "Cleaning and preparing the data"
 
+Rscript -e 'install.packages("yaml")'
+Rscript -e 'install.packages("stm")'
+
 Rscript src/R/corpus_cleaning.R
 
 echo "Training the model. Will take some time."

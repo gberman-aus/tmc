@@ -12,7 +12,7 @@ project_details:
   # currently path is hard coded and this variable isn't used. At some point will update.
 
 corpus_details:
-  url: '//home/users/u4311864/datasets/LP_ML_corpus_23_Nov_22.csv'
+  url: '/home/users/u4311864/datasets/corpus_data/LP_ML_corpus_23_Nov_22.csv'
   local_copy: 1
   # options are 1 for yes, in which case local copy of .csv will be stored in name/inputs/raw/ directory, or 2 for no.
   # note: this assumes a publicly accessible dataset
