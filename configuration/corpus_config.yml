@@ -8,7 +8,7 @@ project_details:
   name: StackExchangeK5_20
   date: '24 November 2022'
   # enter date is a string
-  path:'//home/users/u4311864/tmc'
+  path: '//home/users/u4311864/tmc'
   # currently path is hard coded and this variable isn't used. At some point will update.
 
 corpus_details:
