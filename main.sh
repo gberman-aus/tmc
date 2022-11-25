@@ -1,22 +1,23 @@
 # Main script for pre-processing and training stm models.
 
+echo "Loading dependencies."
+
+Rscript -e 'install.packages("yaml")'
+
 echo "Setting up directories"
 
-python3 src/Python/init.py
+python3 src/Python/init.py > log.csv
 
 echo "Getting dataset"
 
-python3 src/Python/code_extractor.py
+python3 src/Python/code_extractor.py > log.csv
 
 echo "Cleaning and preparing the data"
 
-Rscript -e 'install.packages("yaml")'
-Rscript -e 'install.packages("stm")'
-
-Rscript src/R/corpus_cleaning.R
+Rscript src/R/corpus_cleaning.R > log.csv
 
 echo "Training the model. Will take some time."
 
-Rscript src/R/model_training.R
+Rscript src/R/model_training.R > log.csv
 
 echo "Shutting down."

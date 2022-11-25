@@ -6,7 +6,6 @@
 library(yaml)
 library(stm)
 library(igraph)
-library(quanteda)
 
 # make sure we are in the right directory
 setwd('//home/users/u4311864/tmc')
@@ -19,9 +18,6 @@ project_path <- paste('projects', configs$project_details$name, sep="/")
 
 # Load the .RDS dfm file
 dtm <- readRDS(paste(project_path, 'inputs/processed/dfm.RDS', sep="/"))
-
-# convert the dfm format for the stm package
-dtm <- convert(dtm, to = "stm")
 
 # search for the best number of topics
 topic_range <- seq(from = training_plan$K_value_range$min_K, to = training_plan$K_value_range$max_K, by = training_plan$K_value_range$K_interval)

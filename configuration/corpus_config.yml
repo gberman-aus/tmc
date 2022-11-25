@@ -13,7 +13,7 @@ project_details:
 
 corpus_details:
   url: '/home/users/u4311864/datasets/corpus_data/LP_ML_corpus_23_Nov_22.csv'
-  local_copy: 1
+  local_copy: 2
   # options are 1 for yes, in which case local copy of .csv will be stored in name/inputs/raw/ directory, or 2 for no.
   # note: this assumes a publicly accessible dataset
 
@@ -27,11 +27,11 @@ document-term_matrix_options:
   # options for dtm_method are 1 for simple count or 2 for tfidf
   min_term_frequency: 10
   # note: min_term_frequency is a raw number. Default is minimum of 10 documents.
-  max_doc_frquency: 0.95
+  max_doc_frquency: 0.99
   # note: max_doc_frequency is percentage. Default is 95% of documents.
   n-grams: 2
     # note: set n-grams to 1 for inclusion only of unigrams, 
   # to 2 for inclusion of bigram, etc. Larger n-grams will 
   # significantly increase size of corpus, and slow down processing.
-  stemming: 1
+  stemming: 2
   # options for stemming are 1 for yes or 2 for no
