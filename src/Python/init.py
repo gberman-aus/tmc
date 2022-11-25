@@ -11,10 +11,13 @@
 
 # Requirements
 import yaml
+import sys
 import os
 
+working_path = os.getenv("working_path")
+
 # make sure we are in the right directory
-os.chdir('//home/users/u4311864/tmc')
+os.chdir(working_path)
 
 # load the configuration file
 with open("configuration/corpus_config.yml") as config_settings:

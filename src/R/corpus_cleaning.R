@@ -7,8 +7,10 @@
 library(yaml)
 library(stm)
 
+working_directory <- Sys.getenv("working_path")
+
 # make sure we are in the right directory
-setwd('//home/users/u4311864/tmc')
+setwd(working_directory)
 
 # Load the .yml files
 configs <- read_yaml('configuration/corpus_config.yml')

@@ -1,0 +1,37 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%files
+    # Where to copy files
+    requirements.txt $PATH/requirements.txt
+    renv.lock $PATH/renv.lock
+    .Rprofile $PATH/.Rprofile
+    renv/activate.R $PATH/renv/activate.R
+    renv/settings.dcf $PATH/renv/settings.dcf
+
+%post
+    # Install new applications here
+    apt-get -y update 
+    apt-get install -y --no-install-recommends \
+        build-essential \
+        r-base \
+        r-base-dev \
+        python3.6 \
+        python3-pip \
+        python3-setuptools \
+        python3-dev \
+        libcurl4-openssl-dev \
+        libssl-dev \
+        libpoppler-cpp-dev \
+        libxml2-dev
+
+%environment
+    # Define environment variables that will be available to the container
+    export PATH=/usr/tmc:$PATH
+
+%runscript
+    # Actions for the container to take when executed
+
+%labels
+    # Custom metadata to be added to the container
+    Author Glen Berman

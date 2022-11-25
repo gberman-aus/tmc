@@ -1,8 +1,9 @@
 # Main script for pre-processing and training stm models.
 
-echo "Loading dependencies."
 
 echo "Setting up directories"
+
+export working_path=$PWD
 
 python3 src/Python/init.py > log.csv
 
