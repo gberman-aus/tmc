@@ -2,8 +2,6 @@
 
 echo "Loading dependencies."
 
-Rscript -e 'install.packages("yaml")'
-
 echo "Setting up directories"
 
 python3 src/Python/init.py > log.csv
