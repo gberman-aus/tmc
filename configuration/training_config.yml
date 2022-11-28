@@ -3,11 +3,11 @@
 
 K_value_range:
   min_K: 5
-  max_K: 100
-  K_interval: 5
+  max_K: 55
+  K_interval: 10
 
 stm_settings:
   seed: 180587
-  runs: 50
-  max_iterations: 100
+  runs: 5
+  max_iterations: 10
 
