@@ -3,11 +3,11 @@
 .Rproj.user
 
 # Ignore configuration and project files, except for the example ones.
-configuration/*
+/configuration
 !configuration/example
 !configuration/example/corpus_config.yml
 !configuration/example/training_config.yml
 
-projects/*
+/projects
 !projects/example
 # note: make sure to update this once an example project is included.
