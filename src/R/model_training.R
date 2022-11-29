@@ -123,6 +123,5 @@ for(i in 1:length(topic_range)) {
 save.image(paste(project_path, "outputs/manytopics.RData", sep="/"))
 
 #clean up
-rm(configs, dtm, training_plan, topic_range, ManyTop, igTC01, igTC05, TC01, TC05, i, project_path, visualizations_path)
-
+rm(list = ls())
 

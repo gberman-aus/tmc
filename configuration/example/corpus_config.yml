@@ -1,0 +1,40 @@
+# Configuration file for corpus processing
+# ---------------------
+# The corpus is assumed to be in a .csv file, with columns containing either 
+# textual content (to be modelled) or metadata (which may be included as 
+# covariates in the stm model).
+
+project_details:
+  name: StackExchangeTest2
+  date: '28 November 2022'
+  # enter date is a string
+  path: '//home/users/u4311864/tmc'
+  # currently path is hard coded and this variable isn't used. At some point will update.
+
+corpus_details:
+  #url: 'https://media.githubusercontent.com/media/gberman-aus/corpus_data/main/LP_ML_corpus_23_Nov_22.csv'
+  url: 'https://media.githubusercontent.com/media/gberman-aus/corpus_data/main/stack_posts_sample.csv'
+  local_copy: 2
+  # options are 1 for yes, in which case local copy of .csv will be stored in name/inputs/raw/ directory, or 2 for no.
+  # note: this assumes a publicly accessible dataset
+
+corpus_format:
+  #col_names: ['Source','Id', 'Title', 'Body', 'ViewCount', 'Score', 'Tags', 'CreationDate']
+  col_names: ['Id', 'Title', 'Body', 'ViewCount', 'Score', 'Tags', 'CreationDate']
+  text_columns: ['Title', 'Body']
+  #data_columns: ['Source','ViewCount', 'Score', 'Tags', 'CreationDate']
+  data_columns: ['ViewCount', 'Score', 'Tags', 'CreationDate']
+
+document-term_matrix_options:
+  dtm_method: 1
+  # options for dtm_method are 1 for simple count or 2 for tfidf
+  min_term_frequency: 10
+  # note: min_term_frequency is a raw number. Default is minimum of 10 documents.
+  max_doc_frquency: 0.99
+  # note: max_doc_frequency is percentage. Default is 95% of documents.
+  n-grams: 1
+    # note: set n-grams to 1 for inclusion only of unigrams, 
+  # to 2 for inclusion of bigram, etc. Larger n-grams will 
+  # significantly increase size of corpus, and slow down processing.
+  stemming: 2
+  # options for stemming are 1 for yes or 2 for no

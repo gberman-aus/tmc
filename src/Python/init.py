@@ -7,6 +7,9 @@
 #              └──processed
 #       └──outputs
 #              └──models
+#              └──exclusivity
+#              └──semcoh
+#              └──sparsity
 #              └──visualizations
 
 # Requirements
@@ -27,7 +30,7 @@ print("Configuration file loaded.")
 
 # create directories, as necessary
 inputs_dir = ['raw', 'intermediate', 'processed']
-outputs_dir = ['models', 'visualizations']
+outputs_dir = ['models', 'exclusivity', 'semcoh', 'sparsity', 'visualizations']
 
 project_dir = configs['project_details']['name']
 parent_dir = "projects"

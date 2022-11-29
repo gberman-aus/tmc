@@ -141,7 +141,7 @@ manyTopicsIterative <- function(documents, vocab, K, prevalence=NULL, content=NU
   # Load the .yml files
   configs <- read_yaml('configuration/corpus_config.yml')
   project_path <- paste('projects', configs$project_details$name, sep="/")
-  project_path <- paste(project_path, "outputs/models", sep="/")
+  project_path <- paste(project_path, "outputs", sep="/")
 
   for(i in 1:length(K)) {
     
@@ -153,17 +153,17 @@ manyTopicsIterative <- function(documents, vocab, K, prevalence=NULL, content=NU
     out[[i]]<-models$runout[[j]]
     exclusivity[[i]]<-models$exclusivity[[j]]
     semcoh[[i]]<-models$semcoh[[j]]
-   
+
      # My addition to save the selected model
-    filename<-paste("model_K",K[i],sep="")
+    filename<-paste("/models/K",K[i],sep="")
     filename<-paste(filename,".RDS",sep="")
     saveRDS(models$runout[[j]], paste(project_path, filename, sep="/"))
     
-    filename<-paste("exclusivity_K",K[i],sep="")
+    filename<-paste("/exclusivity/K",K[i],sep="")
     filename<-paste(filename,".RDS",sep="")
     saveRDS(models$exclusivity[[j]], paste(project_path, filename, sep="/"))
     
-    filename<-paste("semcoh_K",K[i],sep="")
+    filename<-paste("/semcoh/K",K[i],sep="")
     filename<-paste(filename,".RDS",sep="")
     saveRDS(models$semcoh[[j]], paste(project_path, filename, sep="/"))
 
