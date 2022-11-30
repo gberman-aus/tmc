@@ -167,7 +167,7 @@ manyTopicsIterative <- function(documents, vocab, K, prevalence=NULL, content=NU
     filename<-paste(filename,".RDS",sep="")
     saveRDS(models$semcoh[[j]], paste(project_path, filename, sep="/"))
 
-    print(paste("Trained and saved model with K = ", i, sep=""))
+    print(paste("Trained and saved model with K = ", K[i], sep=""))
   
     j<-NULL
   }
