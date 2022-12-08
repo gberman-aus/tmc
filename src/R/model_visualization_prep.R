@@ -7,13 +7,17 @@ library(yaml)
 working_directory <- Sys.getenv("working_path")
 
 # make sure we are in the right directory
-setwd(working_directory)
+#setwd(working_directory)
+setwd("~/ExtraDrive/Research outputs/Topic modelling/StackExchangeNoStem")
 
 # Load the .yml files
-configs <- read_yaml('configuration/corpus_config.yml')
-training_plan <- read_yaml('configuration/training_config.yml')
+#configs <- read_yaml('configuration/corpus_config.yml')
+#training_plan <- read_yaml('configuration/training_config.yml')
+configs <- read_yaml('corpus_config.yml')
+training_plan <- read_yaml('training_config.yml')
 
-project_path <- paste('projects', configs$project_details$name, sep="/")
+#project_path <- paste('projects', configs$project_details$name, sep="/")
+project_path <- "~/ExtraDrive/Research outputs/Topic modelling/StackExchangeNoStem"
 
 # initiate variables
 runout <- list()
@@ -59,8 +63,8 @@ if (length(list_sparsity) > 0){
 }
 
 # We now have an R object that is formatted in the same was an STM selectodel. We can use this with plotModels().
-class(out) <- "selectModel"
 out <- list(runout=runout, semcoh=semcoh, exclusivity=exclusivity, sparsity=sparsity)
+class(out) <- "selectModel"
 saveRDS(out, paste(project_path, "outputs/models/combined_models.RDS", sep="/"))
 
 # clean up
