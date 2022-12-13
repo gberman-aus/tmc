@@ -22,8 +22,8 @@ visualizations_path <- paste(project_path, 'outputs/visualizations/', sep="/")
 out <- readRDS('inputs/processed/dfm.RDS')
 models <- readRDS('outputs/manytopics.RDS')
 
-model_25 <- models$out[[5]]
-model_35 <- models$out[[7]]
+model_25 <- models$out[[4]]
+model_35 <- models$out[[6]]
 
 prep_25 <- estimateEffect(1:25 ~ Source, model_25, meta = out$meta)
 prep_35 <- estimateEffect(1:35 ~ Source, model_35, meta = out$meta)

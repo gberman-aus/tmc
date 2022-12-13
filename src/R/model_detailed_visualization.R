@@ -11,7 +11,7 @@ working_directory <- Sys.getenv("working_path")
 
 # make sure we are in the right directory
 #setwd(working_directory)
-setwd("~/ExtraDrive/Research outputs/Topic modelling/StackExchangeNoStem")
+setwd("~/ExtraDrive/Research outputs/Topic modelling/StackExchangeStem")
 
 # Load the .yml files
 #configs <- read_yaml('configuration/corpus_config.yml')

@@ -11,7 +11,7 @@ working_directory <- Sys.getenv("working_path")
 
 # make sure we are in the right directory
 #setwd(working_directory)
-setwd("~/ExtraDrive/Research outputs/Topic modelling/StackExchangeNoStem")
+setwd("~/ExtraDrive/Research outputs/Topic modelling/StackExchangeStem")
 
 # Load the .yml files
 #configs <- read_yaml('configuration/corpus_config.yml')
@@ -20,7 +20,7 @@ configs <- read_yaml('corpus_config.yml')
 training_plan <- read_yaml('training_config.yml')
 
 #project_path <- paste('projects', configs$project_details$name, sep="/")
-project_path <- "~/ExtraDrive/Research outputs/Topic modelling/StackExchangeNoStem"
+project_path <- "~/ExtraDrive/Research outputs/Topic modelling/StackExchangeStem"
 visualizations_path <- paste(project_path, 'outputs/visualizations/', sep="/")
 
 # Load the compbined RDS file of the trained models
